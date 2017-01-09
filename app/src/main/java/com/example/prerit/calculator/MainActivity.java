@@ -26,16 +26,16 @@ public class MainActivity extends AppCompatActivity  {
         add.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                try
+                {
                 x=Integer.parseInt(num1.getText().toString());
                 y=Integer.parseInt(num2.getText().toString());
-                if(x||y == "null")
-                {
-                    result.setText("enter a value");
-                }
-                else
-                {
                 z=x+y;
                 result.setText(Integer.toString(z));
+                }
+                catch(Exception ex)
+                {
+                    result.setText("entetr a value");
                 }
             }
         });
@@ -99,20 +99,19 @@ public class MainActivity extends AppCompatActivity  {
         multi.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                try
+                {
                 x=Integer.parseInt(num1.getText().toString());
                 y=Integer.parseInt(num2.getText().toString());
-                   if(x||y == "null")
-                {
-                    result.setText("enter a value");
-                }
-                else
-                {
                 z=x*y;
                 result.setText(Integer.toString(z));
                 }
+                catch(Exception ex)
+                {
+                   result.setText("enter the value");
+                }
+                
             }
-        });
-
-
+        });       
     }
 }

@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity  {
     Button add,sub,div,multi;
     TextView result;
     EditText num1,num2;
-    int x,y,z;
+    int x=0,y=0,z=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +28,15 @@ public class MainActivity extends AppCompatActivity  {
             public void onClick(View v) {
                 x=Integer.parseInt(num1.getText().toString());
                 y=Integer.parseInt(num2.getText().toString());
+                if(x||y == "null")
+                {
+                    result.setText("enter a value");
+                }
+                else
+                {
                 z=x+y;
                 result.setText(Integer.toString(z));
+                }
             }
         });
         div= (Button) findViewById(R.id.div);
@@ -39,23 +46,31 @@ public class MainActivity extends AppCompatActivity  {
         div.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+               
                 x=Integer.parseInt(num1.getText().toString());
                 y=Integer.parseInt(num2.getText().toString());
-                if(x==0 || y==0)
+                   if(x||y == "null")
                 {
-                    result.setText("zero error");
-                }
-                else if (x>y)
-                {
-                    z=x/y;
-                    result.setText(Integer.toString(z));
+                    result.setText("enter a value");
                 }
                 else
                 {
-                   z=y/x;
-                    result.setText(Integer.toString(z));
+                 if(x==0 || y==0)
+                 {
+                     result.setText("zero error");
+                 }
+                 else if (x>y)
+                 {
+                     z=x/y;
+                     result.setText(Integer.toString(z));
+                 }
+                 else
+                 {
+                    z=y/x;
+                     result.setText(Integer.toString(z));
+                 }
                 }
-
+                
             }
         });
         sub.setOnClickListener(new OnClickListener() {
@@ -63,6 +78,12 @@ public class MainActivity extends AppCompatActivity  {
             public void onClick(View v) {
                 x=Integer.parseInt(num1.getText().toString());
                 y=Integer.parseInt(num2.getText().toString());
+                   if(x||y == "null")
+                {
+                    result.setText("enter a value");
+                }
+                else
+                {
                 if (x>y)
                 {
                     z=x-y;
@@ -72,6 +93,7 @@ public class MainActivity extends AppCompatActivity  {
                     z=y-x;
                 }
                 result.setText(Integer.toString(z));
+                }
             }
         });
         multi.setOnClickListener(new OnClickListener() {
@@ -79,8 +101,15 @@ public class MainActivity extends AppCompatActivity  {
             public void onClick(View v) {
                 x=Integer.parseInt(num1.getText().toString());
                 y=Integer.parseInt(num2.getText().toString());
+                   if(x||y == "null")
+                {
+                    result.setText("enter a value");
+                }
+                else
+                {
                 z=x*y;
                 result.setText(Integer.toString(z));
+                }
             }
         });
 

@@ -10,7 +10,7 @@ import android.view.View.OnClickListener;
 
 public class MainActivity extends AppCompatActivity  {
 
-    Button add,sub,div,multi;
+    Button add,sub,div,multi,activnew;
     TextView result;
     EditText num1,num2;
     int x=0,y=0,z=0;
@@ -19,10 +19,21 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        activnew=(Button) findViewById(R.id.activnew);
         num1=(EditText) findViewById(R.id.number1);
         num2=(EditText) findViewById(R.id.number2);
         result= (TextView) findViewById(R.id.textView3);
         add= (Button) findViewById(R.id.button);
+        activnew.setClickListener(new OnClickListerner()
+         {
+             @Override
+            public void onClick(View v)
+            {
+                Intent myintant= new Intent(Mainactivity.this,Newactivity.class);
+                Startactivity(myintant);
+            }
+         });
+
         add.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -26,10 +26,16 @@ public class MainActivity extends AppCompatActivity  {
         add.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                x=Integer.parseInt(num1.getText().toString());
-                y=Integer.parseInt(num2.getText().toString());
-                z=x+y;
-                result.setText(Integer.toString(z));
+                try {
+                    x = Integer.parseInt(num1.getText().toString());
+                    y = Integer.parseInt(num2.getText().toString());
+                    z = x + y;
+                    result.setText(Integer.toString(z));
+                }
+                catch (Exception ex)
+                {
+                    result.setText("entetr a value");
+                }
             }
         });
         div= (Button) findViewById(R.id.div);
@@ -39,6 +45,8 @@ public class MainActivity extends AppCompatActivity  {
         div.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                try
+                {
                 x=Integer.parseInt(num1.getText().toString());
                 y=Integer.parseInt(num2.getText().toString());
                 if(x==0 || y==0)
@@ -55,32 +63,46 @@ public class MainActivity extends AppCompatActivity  {
                    z=y/x;
                     result.setText(Integer.toString(z));
                 }
+                }
+                catch(Exception ex)
+                {
+                    result.setText(ex.toString());
+                }
 
             }
         });
         sub.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                x=Integer.parseInt(num1.getText().toString());
-                y=Integer.parseInt(num2.getText().toString());
-                if (x>y)
-                {
-                    z=x-y;
+                try {
+                    x = Integer.parseInt(num1.getText().toString());
+                    y = Integer.parseInt(num2.getText().toString());
+                    if (x > y) {
+                        z = x - y;
+                    } else {
+                        z = y - x;
+                    }
+                    result.setText(Integer.toString(z));
                 }
-                else
+                catch (Exception ex)
                 {
-                    z=y-x;
+                    result.setText("entetr a value");
                 }
-                result.setText(Integer.toString(z));
             }
         });
         multi.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                x=Integer.parseInt(num1.getText().toString());
-                y=Integer.parseInt(num2.getText().toString());
-                z=x*y;
-                result.setText(Integer.toString(z));
+                try {
+                    x = Integer.parseInt(num1.getText().toString());
+                    y = Integer.parseInt(num2.getText().toString());
+                    z = x * y;
+                    result.setText(Integer.toString(z));
+                }
+                catch (Exception ex)
+                {
+                    result.setText("entetr a value");
+                }
             }
         });
 

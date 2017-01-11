@@ -15,7 +15,17 @@ public class MainActivity extends AppCompatActivity  {
     EditText num1,num2;
     int x,y,z;
     int[] p = new int[2];
-
+    public void inputgetter()
+    {
+        try {
+            p[0] = Integer.parseInt(num1.getText().toString());
+            p[1] = Integer.parseInt(num2.getText().toString());
+        }
+        catch (Exception ex)
+        {
+            result.setText("entetr a value");
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,16 +37,13 @@ public class MainActivity extends AppCompatActivity  {
         add.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    x = Integer.parseInt(num1.getText().toString());
-                    y = Integer.parseInt(num2.getText().toString());
-                    z = x + y;
+                    //x = Integer.parseInt(num1.getText().toString());
+                   // y = Integer.parseInt(num2.getText().toString());
+                    inputgetter();
+                    z = p[0] + p[1];
                     result.setText(Integer.toString(z));
-                }
-                catch (Exception ex)
-                {
-                    result.setText("entetr a value");
-                }
+
+
             }
         });
         div= (Button) findViewById(R.id.div);
@@ -46,10 +53,7 @@ public class MainActivity extends AppCompatActivity  {
         div.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                try
-                {
-                x=Integer.parseInt(num1.getText().toString());
-                y=Integer.parseInt(num2.getText().toString());
+               inputgetter();
                 if(x==0 || y==0)
                 {
                     result.setText("zero error");
@@ -65,19 +69,12 @@ public class MainActivity extends AppCompatActivity  {
                     result.setText(Integer.toString(z));
                 }
                 }
-                catch(Exception ex)
-                {
-                    result.setText(ex.toString());
-                }
 
-            }
         });
         sub.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    x = Integer.parseInt(num1.getText().toString());
-                    y = Integer.parseInt(num2.getText().toString());
+                     inputgetter();
                     if (x > y) {
                         z = x - y;
                     } else {
@@ -85,26 +82,16 @@ public class MainActivity extends AppCompatActivity  {
                     }
                     result.setText(Integer.toString(z));
                 }
-                catch (Exception ex)
-                {
-                    result.setText("entetr a value");
-                }
-            }
+
         });
         multi.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    x = Integer.parseInt(num1.getText().toString());
-                    y = Integer.parseInt(num2.getText().toString());
+                    inputgetter();
                     z = x * y;
                     result.setText(Integer.toString(z));
                 }
-                catch (Exception ex)
-                {
-                    result.setText("entetr a value");
-                }
-            }
+
         });
 
 

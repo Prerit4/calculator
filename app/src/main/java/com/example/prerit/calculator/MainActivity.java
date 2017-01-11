@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity  {
     TextView result;
     EditText num1,num2;
     int x,y,z;
+    int[] p = new int[2];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

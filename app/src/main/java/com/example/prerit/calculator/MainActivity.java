@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity  {
     Button add,sub,div,multi;
     TextView result;
     EditText num1,num2;
-    int x,y,z;
+    int z;
     int[] p = new int[2];
     public void inputgetter()
     {
@@ -54,18 +54,18 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                inputgetter();
-                if(x==0 || y==0)
+                if(p[0]==0 || p[1]==0)
                 {
                     result.setText("zero error");
                 }
-                else if (x>y)
+                else if (p[0]>p[1])
                 {
-                    z=x/y;
+                    z=p[0]/p[1];
                     result.setText(Integer.toString(z));
                 }
                 else
                 {
-                   z=y/x;
+                   z=p[1]/p[0];
                     result.setText(Integer.toString(z));
                 }
                 }
@@ -75,10 +75,10 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                      inputgetter();
-                    if (x > y) {
-                        z = x - y;
+                    if (p[0] > p[1]) {
+                        z = p[0] - p[1];
                     } else {
-                        z = y - x;
+                        z = p[1] - p[0];
                     }
                     result.setText(Integer.toString(z));
                 }
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                     inputgetter();
-                    z = x * y;
+                    z = p[0] * p[1];
                     result.setText(Integer.toString(z));
                 }
 
